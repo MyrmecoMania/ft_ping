@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enorie <enorie@student.42.fr>              #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-24 08:36:59 by enorie            #+#    #+#             */
+/*   Updated: 2025-10-24 08:36:59 by enorie           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "./includes/ft_ping.h"
 
 int loop = 1;
@@ -112,5 +123,5 @@ int main(int argc, char **argv) {
   else
     printf("PING %s (%s): %d data bytes\n", options->hostname, inet_ntop(AF_INET, &goodRes->sin_addr, dst, INET_ADDRSTRLEN), options->size);
   init_loop(sockfd, options, temp_addr);
-  return (free(options->hostname), free(options), free(res), close(sockfd), 0);
+  return (free(options->hostname), free(options), freeaddrinfo(res), close(sockfd), 0);
 }

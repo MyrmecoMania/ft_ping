@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: enorie <enorie@student.42.fr>              #+#  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025-10-24 08:37:18 by enorie            #+#    #+#             */
+/*   Updated: 2025-10-24 08:37:18 by enorie           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../includes/ft_ping.h"
 
 void  print_icmp_error(struct icmphdr *icmp, struct iphdr *ip, int bytes, int verbose, char *str) {
@@ -34,6 +45,6 @@ int print_command_error(char *str, struct options *options, struct addrinfo *res
   if (options)
     free(options);
   if (res)
-    free(res);
+    freeaddrinfo(res);
   return (1);
 }
